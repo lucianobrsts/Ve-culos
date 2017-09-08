@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, 
+      maximum-scale=1, user-scalable=no">
+<title>Veículos</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h3>Listagem de Estados</h3>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table id="estados"
+						class="table table-bordered table-striped table-hover">
+						<thead>
+							<tr>
+								<th data-column="id">ID</th>
+								<th data-column="nome">Nome</th>
+								<th data-column="sigla">Sigla</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr></tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="4" class="" align="right">
+									<button id="recarregarButton" class="btn btn-primary btn-sm">
+										<span class="glyphicon glyphicon-refresh"></span> Recarregar
+									</button> <a class="btn btn-primary btn-sm" href="estados-editar.html">
+										<span class="glyphicon glyphicon-user"></span> Novo
+								</a>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div
+				class="col-xs-12 col-sm-4 col-md-2 col-sm-offset-4 
+            col-md-offset-5">
+				<a class="btn btn-primary btn-block" href="index.html"> <span
+					class="glyphicon glyphicon-menu-left"></span> Voltar
+				</a>
+
+			</div>
+		</div>
+	</div>
+	<script defer="defer" src="js/lib/jquery.js"></script>
+	<script defer="defer" src="js/lib/bootstrap.js"></script>
+	<script defer="defer" src="js/api/login-proxy.js"></script>
+	<script defer="defer" src="js/api/estados-proxy.js"></script>
+	<script defer="defer" src="js/ctrl/estados-listar.js"></script>
+</body>
+
+</html>

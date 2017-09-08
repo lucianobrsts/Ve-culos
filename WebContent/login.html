@@ -1,0 +1,57 @@
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+	aria-labelledby="loginLabel">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="loginLabel">Login</h4>
+			</div>
+			<div class="modal-body">
+
+				<form class="form" novalidate>
+					<div class="form-group">
+						<label for="cpf" class="control-label">CPF</label> <input
+							type="text" class="form-control" id="loginModal_cpfInput"
+							placeholder="99999999999" maxlength="11" autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label for="senha" class="control-label">Senha</label> <input
+							type="password" class="form-control" id="loginModal_senhaInput"
+							maxlength="10" />
+					</div>
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button id="loginModal_buttonLogin" type="button"
+					class="btn btn-primary">Login</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(function() {
+   $("#loginModal_buttonLogin").click(function(event) {
+      var usuario = {
+         cpf : $("#loginModal_cpfInput").val(),
+         senha : $("#loginModal_senhaInput").val()
+      };
+
+      LoginProxy.login(usuario)
+         .done(function (data, textStatus, jqXHR) {
+            sessionStorage.CursoRWSJWSToken = jqXHR.getResponseHeader('jwt');
+            $('#loginModal').modal('hide');
+         })
+         .fail(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+         });
+   });
+   
+	$('#loginModal').on('shown.bs.modal', function () {
+		  $("#loginModal_cpfInput").focus();
+	});
+	
+	$('#loginModal').modal('show');
+});
+</script>
